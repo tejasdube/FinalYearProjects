@@ -1,0 +1,687 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Final Year Projects - Engineering & Computer Science</title>
+    
+    <!-- Bootstrap CSS -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/css/bootstrap.min.css" rel="stylesheet">
+    
+    <!-- Font Awesome -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
+    
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Poppins', sans-serif;
+            line-height: 1.6;
+            color: #333;
+            overflow-x: hidden;
+        }
+        
+        .hero-section {
+            background: linear-gradient(135deg, #ff6b35 0%, #f7931e 100%);
+            min-height: 100vh;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .hero-section::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 1000"><defs><radialGradient id="a" cx="50%" cy="50%"><stop offset="0%" stop-color="%23ffffff" stop-opacity="0.1"/><stop offset="100%" stop-color="%23ffffff" stop-opacity="0"/></radialGradient></defs><circle cx="200" cy="200" r="100" fill="url(%23a)"/><circle cx="800" cy="300" r="150" fill="url(%23a)"/><circle cx="400" cy="700" r="120" fill="url(%23a)"/></svg>');
+            opacity: 0.1;
+        }
+        
+        .hero-content {
+            position: relative;
+            z-index: 2;
+        }
+        
+        .robot-container {
+            position: relative;
+            animation: float 3s ease-in-out infinite;
+        }
+        
+        @keyframes float {
+            0%, 100% { transform: translateY(0px); }
+            50% { transform: translateY(-20px); }
+        }
+        
+        .robot-image {
+            max-width: 100%;
+            height: auto;
+            filter: drop-shadow(0 10px 30px rgba(0,0,0,0.3));
+        }
+        
+        .title-text {
+            font-size: 4rem;
+            font-weight: 700;
+            color: #2c3e50;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.1);
+            margin-bottom: 1rem;
+        }
+        
+        .subtitle-text {
+            font-size: 2.5rem;
+            font-weight: 300;
+            color: #34495e;
+            font-style: italic;
+            margin-bottom: 2rem;
+        }
+        
+        .available-text {
+            font-size: 2rem;
+            font-weight: 400;
+            color: #2c3e50;
+            font-style: italic;
+        }
+        
+        .programs-list {
+            list-style: none;
+            padding: 0;
+        }
+        
+        .programs-list li {
+            font-size: 1.8rem;
+            color: #2c3e50;
+            margin-bottom: 1rem;
+            display: flex;
+            align-items: center;
+            animation: slideInLeft 0.8s ease forwards;
+            opacity: 0;
+            transform: translateX(-50px);
+        }
+        
+        .programs-list li:nth-child(1) { animation-delay: 0.2s; }
+        .programs-list li:nth-child(2) { animation-delay: 0.4s; }
+        .programs-list li:nth-child(3) { animation-delay: 0.6s; }
+        .programs-list li:nth-child(4) { animation-delay: 0.8s; }
+        
+        @keyframes slideInLeft {
+            to {
+                opacity: 1;
+                transform: translateX(0);
+            }
+        }
+        
+        .programs-list li::before {
+            content: '#';
+            color: #ff6b35;
+            font-weight: bold;
+            margin-right: 10px;
+            font-size: 2rem;
+        }
+        
+        .support-section {
+            background: #2c3e50;
+            padding: 3rem 0;
+            margin-top: 3rem;
+            border-radius: 20px 20px 0 0;
+        }
+        
+        .support-title {
+            color: #f1c40f;
+            font-size: 2.5rem;
+            font-weight: 600;
+            margin-bottom: 2rem;
+            text-align: center;
+        }
+        
+        .support-list {
+            list-style: none;
+            padding: 0;
+        }
+        
+        .support-list li {
+            color: white;
+            font-size: 1.2rem;
+            margin-bottom: 1rem;
+            display: flex;
+            align-items: center;
+            padding: 0.5rem 0;
+        }
+        
+        .support-list li::before {
+            content: '★';
+            color: #f1c40f;
+            margin-right: 15px;
+            font-size: 1.5rem;
+        }
+        
+        .contact-section {
+            background: #34495e;
+            padding: 2rem 0;
+            text-align: center;
+        }
+        
+        .whatsapp-btn {
+            background: #25d366;
+            color: white;
+            border: none;
+            padding: 1rem 2rem;
+            font-size: 1.3rem;
+            border-radius: 50px;
+            transition: all 0.3s ease;
+            text-decoration: none;
+            display: inline-block;
+            margin: 1rem;
+            box-shadow: 0 5px 15px rgba(37, 211, 102, 0.4);
+        }
+        
+        .whatsapp-btn:hover {
+            background: #128c7e;
+            transform: translateY(-3px);
+            box-shadow: 0 8px 25px rgba(37, 211, 102, 0.6);
+            color: white;
+        }
+        
+        .phone-number {
+            color: #ecf0f1;
+            font-size: 1.5rem;
+            font-weight: 600;
+            margin-top: 1rem;
+        }
+        
+        /* Popup Styles */
+        .popup-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.8);
+            z-index: 9999;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            opacity: 0;
+            visibility: hidden;
+            transition: all 0.3s ease;
+        }
+        
+        .popup-overlay.show {
+            opacity: 1;
+            visibility: visible;
+        }
+        
+        .popup-content {
+            background: white;
+            border-radius: 20px;
+            padding: 2rem;
+            max-width: 500px;
+            width: 90%;
+            text-align: center;
+            transform: scale(0.7);
+            transition: transform 0.3s ease;
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+        }
+        
+        .popup-overlay.show .popup-content {
+            transform: scale(1);
+        }
+        
+        .popup-robot {
+            width: 80px;
+            height: 80px;
+            margin: 0 auto 1rem;
+            background: linear-gradient(135deg, #3498db, #2980b9);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 2rem;
+            color: white;
+            animation: pulse 2s infinite;
+        }
+        
+        @keyframes pulse {
+            0%, 100% { transform: scale(1); }
+            50% { transform: scale(1.1); }
+        }
+        
+        .popup-title {
+            color: #2c3e50;
+            font-size: 1.8rem;
+            font-weight: 600;
+            margin-bottom: 1rem;
+        }
+        
+        .popup-text {
+            color: #7f8c8d;
+            font-size: 1rem;
+            margin-bottom: 2rem;
+            line-height: 1.6;
+        }
+        
+        .popup-whatsapp-btn {
+            background: #25d366;
+            color: white;
+            border: none;
+            padding: 1rem 2rem;
+            font-size: 1.1rem;
+            border-radius: 50px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            text-decoration: none;
+            display: inline-block;
+            margin-right: 1rem;
+        }
+        
+        .popup-whatsapp-btn:hover {
+            background: #128c7e;
+            transform: translateY(-2px);
+            color: white;
+        }
+        
+        .popup-close-btn {
+            background: #95a5a6;
+            color: white;
+            border: none;
+            padding: 1rem 2rem;
+            font-size: 1.1rem;
+            border-radius: 50px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+        
+        .popup-close-btn:hover {
+            background: #7f8c8d;
+            transform: translateY(-2px);
+        }
+        
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .title-text {
+                font-size: 2.5rem;
+            }
+            
+            .subtitle-text {
+                font-size: 1.8rem;
+            }
+            
+            .available-text {
+                font-size: 1.5rem;
+            }
+            
+            .programs-list li {
+                font-size: 1.3rem;
+            }
+            
+            .support-title {
+                font-size: 2rem;
+            }
+            
+            .hero-section {
+                min-height: auto;
+                padding: 2rem 0;
+            }
+        }
+        
+        .features-section {
+            padding: 4rem 0;
+            background: #f8f9fa;
+        }
+        
+        .feature-card {
+            background: white;
+            border-radius: 15px;
+            padding: 2rem;
+            text-align: center;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease;
+            margin-bottom: 2rem;
+        }
+        
+        .feature-card:hover {
+            transform: translateY(-10px);
+        }
+        
+        .feature-icon {
+            font-size: 3rem;
+            color: #ff6b35;
+            margin-bottom: 1rem;
+        }
+        
+        .stats-section {
+            background: linear-gradient(135deg, #2c3e50, #34495e);
+            padding: 4rem 0;
+            color: white;
+        }
+        
+        .stat-item {
+            text-align: center;
+            margin-bottom: 2rem;
+        }
+        
+        .stat-number {
+            font-size: 3rem;
+            font-weight: bold;
+            color: #f1c40f;
+        }
+        
+        .stat-label {
+            font-size: 1.2rem;
+            margin-top: 0.5rem;
+        }
+    </style>
+</head>
+<body>
+    <!-- Popup -->
+    <div class="popup-overlay" id="welcomePopup">
+        <div class="popup-content">
+            <div class="popup-robot">
+                <i class="fas fa-robot"></i>
+            </div>
+            <h2 class="popup-title">Welcome to Final Year Projects!</h2>
+            <p class="popup-text">
+                Get expert assistance for your Engineering, BCA, MCA, and BCS final year projects. 
+                We provide complete project solutions with training, 100% output guarantee, and demo videos.
+                For software projects, we also provide installation and online delivery support.
+            </p>
+            <a href="https://wa.me/919067414435?text=Hi,%20I%20need%20help%20with%20my%20final%20year%20project" 
+               class="popup-whatsapp-btn" target="_blank">
+                <i class="fab fa-whatsapp"></i> Chat on WhatsApp
+            </a>
+            <button class="popup-close-btn" onclick="closePopup()">Explore Website</button>
+        </div>
+    </div>
+
+    <!-- Hero Section -->
+    <section class="hero-section">
+        <div class="container-fluid">
+            <div class="row  align-items-center hero-content">
+                <div class="col-lg-6 col-md-12 order-2 order-lg-1">
+                    <div class="px-4">
+                        <h1 class="title-text">Final Year</h1>
+                        <h2 class="subtitle-text">Projects</h2>
+                        <h3 class="available-text">Available</h3>
+                        
+                        <ul class="programs-list mt-4">
+                            <li>Engineering</li>
+                            <li>BCA</li>
+                            <li>MCA</li>
+                            <li>BCS</li>
+                        </ul>
+                    </div>
+                </div>
+                
+                <div class="col-lg-6 col-md-12 order-1 order-lg-2 text-center">
+                    <div class="robot-container">
+                        <div style="width: 300px; height: 400px; margin: 0 auto; position: relative;">
+                            <svg class="robot-image" viewBox="0 0 300 400" xmlns="http://www.w3.org/2000/svg">
+                                <defs>
+                                    <linearGradient id="robotGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+                                        <stop offset="0%" style="stop-color:#3498db;stop-opacity:1" />
+                                        <stop offset="100%" style="stop-color:#2980b9;stop-opacity:1" />
+                                    </linearGradient>
+                                </defs>
+                                
+                                <!-- Robot Body -->
+                                <ellipse cx="150" cy="200" rx="80" ry="120" fill="url(#robotGrad)" stroke="#2c3e50" stroke-width="3"/>
+                                
+                                <!-- Robot Head -->
+                                <circle cx="150" cy="80" r="50" fill="url(#robotGrad)" stroke="#2c3e50" stroke-width="3"/>
+                                
+                                <!-- Eyes -->
+                                <circle cx="135" cy="75" r="8" fill="#ff6b35"/>
+                                <circle cx="165" cy="75" r="8" fill="#ff6b35"/>
+                                
+                                <!-- Arms -->
+                                <ellipse cx="90" cy="160" rx="15" ry="40" fill="url(#robotGrad)" stroke="#2c3e50" stroke-width="2"/>
+                                <ellipse cx="210" cy="160" rx="15" ry="40" fill="url(#robotGrad)" stroke="#2c3e50" stroke-width="2"/>
+                                
+                                <!-- Legs -->
+                                <ellipse cx="120" cy="340" rx="20" ry="50" fill="url(#robotGrad)" stroke="#2c3e50" stroke-width="2"/>
+                                <ellipse cx="180" cy="340" rx="20" ry="50" fill="url(#robotGrad)" stroke="#2c3e50" stroke-width="2"/>
+                                
+                                <!-- Hands -->
+                                <circle cx="90" cy="200" r="12" fill="#f1c40f"/>
+                                <circle cx="210" cy="200" r="12" fill="#f1c40f"/>
+                                
+                                <!-- Feet -->
+                                <ellipse cx="120" cy="385" rx="25" ry="12" fill="#2c3e50"/>
+                                <ellipse cx="180" cy="385" rx="25" ry="12" fill="#2c3e50"/>
+                                
+                                <!-- Body Details -->
+                                <rect x="130" y="180" width="40" height="20" rx="5" fill="#ff6b35"/>
+                                <rect x="130" y="210" width="40" height="20" rx="5" fill="#f1c40f"/>
+                            </svg>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Support Section -->
+        <div class="support-section">
+            <div class="container">
+                <h2 class="support-title">Our Support</h2>
+                <div class="row">
+                    <div class="col-lg-6">
+                        <ul class="support-list">
+                            <li>Own projects/ideas accepted</li>
+                            <li>Project delivery with training</li>
+                            <li>100% output guarantee</li>
+                        </ul>
+                    </div>
+                    <div class="col-lg-6">
+                        <ul class="support-list">
+                            <li>Project demo video</li>
+                            <li>Software installation support</li>
+                            <li>Online delivery mode available</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Contact Section -->
+        <div class="contact-section">
+            <div class="container">
+                <a href="https://wa.me/919067414435?text=Hi,%20I%20need%20help%20with%20my%20final%20year%20project" 
+                   class="whatsapp-btn" target="_blank">
+                    <i class="fab fa-whatsapp"></i> Contact on WhatsApp
+                </a>
+                <div class="phone-number">+91 9067414435</div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Features Section -->
+    <section class="features-section">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-4 col-md-6">
+                    <div class="feature-card">
+                        <div class="feature-icon">
+                            <i class="fas fa-code"></i>
+                        </div>
+                        <h4>Custom Development</h4>
+                        <p>We create custom projects tailored to your specific requirements and academic needs.</p>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-6">
+                    <div class="feature-card">
+                        <div class="feature-icon">
+                            <i class="fas fa-graduation-cap"></i>
+                        </div>
+                        <h4>Expert Training</h4>
+                        <p>Complete training sessions to help you understand your project thoroughly.</p>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-6">
+                    <div class="feature-card">
+                        <div class="feature-icon">
+                            <i class="fas fa-shield-alt"></i>
+                        </div>
+                        <h4>Quality Assurance</h4>
+                        <p>100% output guarantee with thorough testing and quality checks.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Stats Section -->
+    <section class="stats-section">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-4 col-md-6">
+                    <div class="stat-item">
+                        <div class="stat-number" data-count="20">0</div>
+                        <div class="stat-label">Projects Completed</div>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-6">
+                    <div class="stat-item">
+                        <div class="stat-number" data-count="100">0</div>
+                        <div class="stat-label">Success Rate %</div>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-6">
+                    <div class="stat-item">
+                        <div class="stat-number" data-count="24">0</div>
+                        <div class="stat-label">Hours Support</div>
+                    </div>
+                </div>
+                <!-- <div class="col-lg-3 col-md-6">
+                    <div class="stat-item">
+                        <div class="stat-number" data-count="4">0</div>
+                        <div class="stat-label">Course Types</div>
+                    </div>
+                </div> -->
+            </div>
+        </div>
+    </section>
+
+    <!-- Bootstrap JS -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/js/bootstrap.bundle.min.js"></script>
+    
+    <!-- jQuery -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.0/jquery.min.js"></script>
+    
+    <script>
+        // Show popup on page load
+        $(document).ready(function() {
+            localStorage.clear();
+            // Check if popup has been shown before
+            if (!localStorage.getItem('popupShown')) {
+                setTimeout(function() {
+                    $('#welcomePopup').addClass('show');
+                }, 1000);
+            }
+        });
+        
+        // Close popup function
+        function closePopup() {
+            $('#welcomePopup').removeClass('show');
+            localStorage.setItem('popupShown', 'true');
+        }
+        
+        // Close popup when clicking outside
+        $('.popup-overlay').click(function(e) {
+            if (e.target === this) {
+                closePopup();
+                localStorage.clear();
+            }
+
+        });
+        
+        // Animate statistics counter
+        function animateCounter() {
+            $('.stat-number').each(function() {
+                const $this = $(this);
+                const countTo = $this.attr('data-count');
+                
+                $({ countNum: $this.text() }).animate({
+                    countNum: countTo
+                }, {
+                    duration: 2000,
+                    easing: 'linear',
+                    step: function() {
+                        $this.text(Math.floor(this.countNum));
+                    },
+                    complete: function() {
+                        $this.text(this.countNum);
+                    }
+                });
+            });
+        }
+        
+        // Trigger animation when stats section is in view
+        $(window).scroll(function() {
+            const statsSection = $('.stats-section');
+            const scrollTop = $(window).scrollTop();
+            const windowHeight = $(window).height();
+            const statsTop = statsSection.offset().top;
+            
+            if (scrollTop + windowHeight > statsTop && !statsSection.hasClass('animated')) {
+                statsSection.addClass('animated');
+                animateCounter();
+            }
+        });
+        
+        // Smooth scrolling for anchor links
+        $('a[href^="#"]').on('click', function(event) {
+            event.preventDefault();
+            const target = $(this.getAttribute('href'));
+            if (target.length) {
+                $('html, body').stop().animate({
+                    scrollTop: target.offset().top
+                }, 1000);
+            }
+        });
+        
+        // Add floating animation to robot on hover
+        $('.robot-container').hover(
+            function() {
+                $(this).css('animation-duration', '1s');
+            },
+            function() {
+                $(this).css('animation-duration', '3s');
+            }
+        );
+        
+        // WhatsApp button click tracking
+        $('.whatsapp-btn, .popup-whatsapp-btn').click(function() {
+            // Track WhatsApp button clicks
+            console.log('WhatsApp button clicked');
+            // You can add analytics tracking here
+        });
+        
+        // Add parallax effect to hero section
+        $(window).scroll(function() {
+            const scrolled = $(this).scrollTop();
+            $('.hero-section').css('transform', 'translateY(' + (scrolled * 0.1) + 'px)');
+        });
+        
+        // Add bounce effect to feature cards on scroll
+        $(window).scroll(function() {
+            $('.feature-card').each(function() {
+                const elementTop = $(this).offset().top;
+                const elementBottom = elementTop + $(this).outerHeight();
+                const viewportTop = $(window).scrollTop();
+                const viewportBottom = viewportTop + $(window).height();
+                
+                if (elementBottom > viewportTop && elementTop < viewportBottom) {
+                    $(this).addClass('animate__animated animate__fadeInUp');
+                }
+            });
+        });
+    </script>
+</body>
+</html>
