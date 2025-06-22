@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -462,6 +463,10 @@
                             </svg>
                         </div>
                     </div>
+                    <a href="https://wa.me/919067414435?text=Hi,%20I%20need%20help%20with%20my%20final%20year%20project" 
+                    class="popup-whatsapp-btn" target="_blank">
+                     <i class="fab fa-whatsapp"></i> Chat on WhatsApp
+                 </a>
                 </div>
             </div>
         </div>
@@ -490,7 +495,7 @@
         </div>
         
         <!-- Contact Section -->
-        <div class="contact-section">
+        <div class="contact-section" id="WpID">
             <div class="container">
                 <a href="https://wa.me/919067414435?text=Hi,%20I%20need%20help%20with%20my%20final%20year%20project" 
                    class="whatsapp-btn" target="_blank">
@@ -576,6 +581,9 @@
     
     <script>
         // Show popup on page load
+        document.getElementById("WpID").addEventListener("click", function () {
+    window.open("https://wa.me/919067414435?text=Hi,%20I%20need%20help%20with%20my%20final%20year%20project", "_blank");
+  });
         $(document).ready(function() {
             localStorage.clear();
             // Check if popup has been shown before
